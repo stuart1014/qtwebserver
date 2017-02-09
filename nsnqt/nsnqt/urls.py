@@ -20,5 +20,6 @@ from report import views as report_views
 urlpatterns = [
     url(r'^$', report_views.index),
     url(r'^admin/', admin.site.urls),
-    url(r'^lib/', admin.site.urls)
+    url(r'^report/', report_views.report),
+    url(r'^monitor/', report_views.monitor),
 ]
