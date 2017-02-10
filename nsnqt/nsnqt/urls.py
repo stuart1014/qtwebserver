@@ -20,6 +20,9 @@ from report import views as report_views
 urlpatterns = [
     url(r'^$', report_views.index),
     url(r'^admin/', admin.site.urls),
-    url(r'^report/', report_views.report),
+    url(r'^daily/', report_views.daily),
     url(r'^monitor/', report_views.monitor),
+    url(r'^daily/', report_views.daily),
+    url(r'^price/', report_views.price),
+    url(r'^recommend/', report_views.recommend),
 ]
