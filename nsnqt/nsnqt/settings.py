@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    #django-users2
+    'users',
+    #private
     'report',
 ]
 
@@ -82,6 +84,8 @@ DATABASES = {
     }
 }
 
+# Overwrite the default user certifaction
+AUTH_USER_MODEL = 'users.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -120,3 +124,40 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+# Add user certification part
+USERS_REGISTRATION_OPEN = True
+ 
+USERS_VERIFY_EMAIL = True
+ 
+USERS_AUTO_LOGIN_ON_ACTIVATION = True
+ 
+USERS_EMAIL_CONFIRMATION_TIMEOUT_DAYS = 3
+ 
+# Specifies minimum length for passwords:
+USERS_PASSWORD_MIN_LENGTH = 5
+ 
+# Specifies maximum length for passwords:
+USERS_PASSWORD_MAX_LENGTH = None
+ 
+# the complexity validator, checks the password strength
+USERS_CHECK_PASSWORD_COMPLEXITY = True
+ 
+USERS_SPAM_PROTECTION = False  # important!
+ 
+ 
+#  ---------------------------------------------------------
+#  Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+ 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.126.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'nquant@126.com'
+EMAIL_HOST_PASSWORD = 'nsnqt123'
+DEFAULT_FROM_EMAIL = 'nquant@126.com'
+#  ---------------------------------------------------------
+
+LOGIN_REDIRECT_URL = '/'
